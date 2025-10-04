@@ -27,7 +27,7 @@ export default function Login() {
             if (success) {
                 localStorage.setItem("token", accessJWT);
                 localStorage.setItem("refreshToken", refreshToken);
-                setInterval(() => {
+                setTimeout(() => {
                     localStorage.removeItem("token");
                     localStorage.removeItem("refreshToken");
                     navigate('/login');
