@@ -12,7 +12,6 @@ export default function Login() {
 
     const handleLogin = async () => {
         setLoading(true);
-        setError("");
         try {
             if (!email || !password) {
                 alert("Please fill in all required fields");
