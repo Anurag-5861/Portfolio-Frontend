@@ -1,0 +1,296 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  margin:0;
+  padding: 0;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container-fluid-signup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color:black; 
+  color:rgb(253, 252, 218);
+}
+
+.container-fluid-login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color:rgb(253, 252, 218); 
+  color: black;
+}
+/*rgb(253, 234, 218);*/
+.btn-outline-primary {
+  color: white;       /* Text color */
+  border-color: white; /* Border color */
+}
+
+.btn-outline-primary:hover {
+  background-color: rgb(26, 234, 172);
+  color: white;
+}
+
+@media (max-width: 768px) {  /* Bootstrap md breakpoint */
+  .custom-form-width {
+    max-width: 90%; /* take most of the screen */
+  }
+
+  .custom-width {
+    font-size: 1.1rem; /* bigger text in inputs */
+    padding: 0.75rem;  /* more padding inside inputs */
+  }
+
+  h2 {
+    font-size: 2rem;   /* bigger heading */
+  }
+
+}
+
+.button-mar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-custom {
+  color: rgb(253, 252, 218);
+}
+
+.second-half{
+  background-color: black;
+  color:#f7e9d7;
+  margin: 0;
+  padding: 0;
+}
+
+.first-half{
+  background-color:#f7e9d7;
+  color:#0f0f0f;
+  margin: 0;
+  padding: 0;
+}
+
+.upperhalf{
+  margin: 0 auto;
+  padding: 0;
+}
+
+.middle{
+  margin: 0 auto;
+  padding: 0;
+  font-size:x-large;
+}
+
+@media(max-width:768px){
+  .middle{
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0.9rem;
+}
+}
+
+.content-first-half{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2px auto;
+  padding-left: 2vw ;
+  padding-right: 2vw ;
+}
+
+.divided{
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  justify-content:center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media(max-width:768px){
+  .divided{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: flex-start;
+  justify-items:center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+}
+.divided-home{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content:center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(253, 252, 218);
+}
+
+@media(max-width:768px){
+  .divided-home{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  justify-items:center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(253, 252, 218);
+}
+
+.middle-friend{
+  margin: 0 auto;
+  padding: 0;
+  font-size:x-large;
+  background-color: #282c34;
+}
+
+@media(max-width:768px){
+  .middle{
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0.9rem;
+  background-color: #282c34;
+}
+}
+
+.homepage {
+  background-color: red;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  font-family: sans-serif;
+  color: #1c1c1c;
+  text-align: center;
+}
+
+.homepage-heading {
+  background-color: #000000;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.divider-line {
+  width: 60%;
+  margin: 0 auto 2rem auto;
+  border: none;
+  border-top: 2px solid #ccc;
+}
+
+.split-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.split-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: #000000;
+}
+
+.role-card {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.role-card:hover {
+  transform: scale(1.05);
+}
+
+.friend-card {
+  background-color: #ff6b6b;
+}
+
+.recruiter-card {
+  background-color: #4169e1;
+}
+
+
+}
