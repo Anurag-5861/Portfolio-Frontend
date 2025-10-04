@@ -10,74 +10,36 @@ export default function Login() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-    // const handleLogin = async () => {
-    //     setLoading(true);
-    //     try {
-    //         if (!email || !password) {
-    //             alert("Please fill in all required fields");
-    //             return;
-    //         }
-    //         const response = await api.post(
-    //             "/login",
-    //             { email, password }
-    //         );
-
-    //         const { accessJWT, refreshToken, success, message } = response.data;
-    //         if (success) {
-    //             localStorage.setItem("token", accessJWT);
-    //             localStorage.setItem("refreshToken", refreshToken);
-    //             navigate("/home");
-    //             setError("");
-    //         } else {
-    //             setError(message || "Login failed. Please check your credentials and retry again");
-    //         }
-    //     } catch (err) {
-    //         setError(
-    //             err.response?.data ||
-    //             "Something went wrong"
-    //         );
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
     const handleLogin = async () => {
-    setLoading(true);
-    try {
-        if (!email || !password) {
-            alert("Please fill in all required fields");
-            return;
-        }
+        setLoading(true);
+        setError("");
+        try {
+            if (!email || !password) {
+                alert("Please fill in all required fields");
+                return;
+            }
+            const response = await api.post(
+                "/login",
+                { email, password }
+            );
 
-        const response = await api.post("/login", { email, password });
-        console.log("Login response:", response.data); // 🔍 optional debug line
-
-        // ✅ Handle both object or string responses safely
-        if (response.status === 200 && response.data.accessJWT) {
-            const { accessJWT, refreshToken } = response.data;
-            localStorage.setItem("token", accessJWT);
-            localStorage.setItem("refreshToken", refreshToken);
-            setError("");
-            navigate("/home");
-        } else {
-            // Handle plain string or structured error
-            const message =
-                typeof response.data === "string"
-                    ? response.data
-                    : response.data.message || "Login failed. Please check your credentials.";
-            setError(message);
+            const { accessJWT, refreshToken, success, message } = response.data;
+            if (success) {
+                localStorage.setItem("token", accessJWT);
+                localStorage.setItem("refreshToken", refreshToken);
+                navigate("/home");
+            } else {
+                setError(message || "Login failed. Please check your credentials and retry again");
+            }
+        } catch (err) {
+            setError(
+                err.response?.data ||
+                "Please enter correct password"
+            );
+        } finally {
+            setLoading(false);
         }
-    } catch (err) {
-        // ✅ Consistent error handling
-        const backendError =
-            err.response?.data && typeof err.response.data === "string"
-                ? err.response.data
-                : err.response?.data?.message || "Something went wrong";
-        setError(backendError);
-    } finally {
-        setLoading(false);
-    }
-};
+    };
 
     return (
         <div className="container-fluid-login">
@@ -109,10 +71,7 @@ export default function Login() {
                             placeholder="Enter your email"
                             value={email}
                             required
-                            onChange={(e) => {
-                                setError("");
-                                setEmail(e.target.value);
-                            }}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
 
@@ -126,10 +85,7 @@ export default function Login() {
                             placeholder="Enter your password"
                             value={password}
                             required
-                            onChange={(e) => {
-                                setError("");
-                                setPassword(e.target.value);
-                            }}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
