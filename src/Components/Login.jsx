@@ -27,6 +27,11 @@ export default function Login() {
             if (success) {
                 localStorage.setItem("token", accessJWT);
                 localStorage.setItem("refreshToken", refreshToken);
+                setInterval(() => {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("refreshToken");
+                    navigate('/login');
+                }, 10000);
                 navigate("/home");
             } else {
                 setError(message || "Login failed. Please check your credentials and retry again");
