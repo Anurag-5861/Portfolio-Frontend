@@ -9,7 +9,14 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-
+    const handlePassword= (e)=>{
+        const password = e.target.value;
+        setPassword(password.trim());
+    }
+    const handleEmail= (e)=>{
+        const email = e.target.value;
+        setEmail(email.trim());
+    }
     const handleLogin = async () => {
         setLoading(true);
         setError("");
@@ -71,7 +78,7 @@ export default function Login() {
                             placeholder="Enter your email"
                             value={email}
                             required
-                            onChange={(e) => setEmail(e.target.value.trim())}
+                            onChange={handleEmail}
                         />
                     </div>
 
@@ -85,7 +92,7 @@ export default function Login() {
                             placeholder="Enter your password"
                             value={password}
                             required
-                            onChange={(e) => setPassword(e.target.value.trim())}
+                            onChange={handlePassword}
                         />
                     </div>
 
