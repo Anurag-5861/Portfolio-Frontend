@@ -20,10 +20,10 @@ export default function Signup() {
         return;
     }
             const response = await api.post("/signup", {
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                email: formData.email,
-                password: formData.password,
+                firstName: formData.firstName.trim(),
+                lastName: formData.lastName.trim(),
+                email: formData.email.trim(),
+                password: formData.password.trim(),
             });
 
             if (response.status === 200) {

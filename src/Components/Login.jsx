@@ -71,7 +71,7 @@ export default function Login() {
                             placeholder="Enter your email"
                             value={email}
                             required
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value.trim())}
                         />
                     </div>
 
@@ -85,7 +85,7 @@ export default function Login() {
                             placeholder="Enter your password"
                             value={password}
                             required
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value.trim())}
                         />
                     </div>
 
