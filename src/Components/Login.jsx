@@ -10,32 +10,66 @@ export default function Login() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    // const handleLogin = async () => {
+    //     setLoading(true);
+    //     setError("");
+    //     try {
+    //         if (!email || !password) {
+    //             alert("Please fill in all required fields");
+    //             return;
+    //         }
+    //         const response = await api.post(
+    //             "/login",
+    //             { email, password }
+    //         );
+
+    //         const { accessJWT, refreshToken, success, message } = response.data;
+    //         if (success) {
+    //             localStorage.setItem("token", accessJWT);
+    //             localStorage.setItem("refreshToken", refreshToken);
+    //             navigate("/home");
+    //         } else {
+    //             setError(message || "Login failed. Please check your credentials and retry again");
+    //         }
+    //     } catch (err) {
+    //         setError(
+    //             err.response?.data ||
+    //             "Please enter correct password"
+    //         );
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
     const handleLogin = async () => {
         setLoading(true);
         setError("");
+
         try {
             if (!email || !password) {
                 alert("Please fill in all required fields");
                 return;
             }
+
+            // Important: withCredentials must be true so cookie is stored
             const response = await api.post(
                 "/login",
-                { email, password }
+                { email, password },
+                { withCredentials: true }
             );
 
-            const { accessJWT, refreshToken, success, message } = response.data;
-            if (success) {
-                localStorage.setItem("token", accessJWT);
-                localStorage.setItem("refreshToken", refreshToken);
+            const { accessJWT, success, message } = response.data;
+
+            if (success && accessJWT) {
+                // Store access token (use sessionStorage instead of localStorage)
+                sessionStorage.setItem("accessToken", accessJWT);
+
                 navigate("/home");
             } else {
                 setError(message || "Login failed. Please check your credentials and retry again");
             }
         } catch (err) {
-            setError(
-                err.response?.data ||
-                "Please enter correct password"
-            );
+            setError(err.response?.data || "Please enter correct password");
         } finally {
             setLoading(false);
         }
